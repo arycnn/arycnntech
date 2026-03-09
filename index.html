@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aryan Potdar // Minecraft Bedrock Developer</title>
+  <meta name="description" content="Aryan Potdar — Minecraft Bedrock Developer. Custom entities, scripting API, server infrastructure, and Marketplace content." />
+  <meta name="author" content="Aryan Potdar" />
+  <meta name="theme-color" content="#00ff9f" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://aryanpotdar.com/" />
+  <meta property="og:title" content="Aryan Potdar // Minecraft Bedrock Developer" />
+  <meta property="og:description" content="Bedrock developer by obsession. JSON, scripting API, server infrastructure, and Marketplace content that actually performs." />
+  <meta property="og:image" content="https://aryanpotdar.com/og-preview.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Aryan Potdar // Minecraft Bedrock Developer" />
+  <meta name="twitter:description" content="Bedrock developer by obsession." />
+  <meta name="twitter:image" content="https://aryanpotdar.com/og-preview.png" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23020b06'/%3E%3Cpolygon points='32,4 60,20 60,44 32,60 4,44 4,20' fill='none' stroke='%2300ff9f' stroke-width='3'/%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' dominant-baseline='middle' font-family='monospace' font-weight='900' font-size='22' fill='%2300ff9f'%3EA%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div id="loader">
+  <div class="loader-percent" id="loader-num">0%</div>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  <div class="loader-text" id="loader-msg">INITIALIZING SYSTEM...</div>
+</div>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<canvas id="matrix-bg"></canvas>
+
+<nav>
+  <a href="#hero" class="nav-logo">AR<span>Y</span>AN</a>
+  <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div style="position:fixed;top:60px;left:0;width:100%;height:28px;background:var(--panel);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 1.5rem;gap:2rem;z-index:999;font-family:'Share Tech Mono',monospace;font-size:0.65rem;color:var(--muted);">
+  <div class="status-item"><div class="status-dot"></div> ONLINE</div>
+  <div class="status-item">// BEDROCK DEV</div>
+  <div class="status-item" id="time-display"></div>
+  <div class="status-item" id="theme-name" style="margin-left:auto;display:none;"></div>
+  <div class="status-item" style="margin-left:auto;">v1.0.0 // ARYAN.DEV</div>
+</div>
+
+<section id="hero">
+  <div class="hero-eyebrow">[ PORTFOLIO — INITIALIZED ]</div>
+  <h1 class="hero-name"><span class="glitch" data-text="ARYAN">ARYAN</span></h1>
+  <div class="hero-role">Minecraft Bedrock Developer<span class="blink">_</span></div>
+  <p class="hero-desc">
+    Bedrock developer by obsession. I specialize in JSON, scripting API, server infrastructure, and shipping Marketplace content that actually performs.
+  </p>
+  <div class="hero-cta">
+    <a href="#projects" class="btn">View Projects</a>
+    <a href="#contact" class="btn secondary">Get In Touch</a>
+  </div>
+  <div class="hero-grid-lines"></div>
+  <svg class="hero-hex" viewBox="0 0 200 200" fill="none">
+    <polygon points="100,10 185,55 185,145 100,190 15,145 15,55" stroke="#00ff9f" stroke-width="1" fill="none" opacity="0.4"/>
+    <polygon points="100,30 165,67.5 165,132.5 100,170 35,132.5 35,67.5" stroke="#00e5ff" stroke-width="0.5" fill="none" opacity="0.3"/>
+    <polygon points="100,50 145,75 145,125 100,150 55,125 55,75" stroke="#00ff9f" stroke-width="0.5" fill="#00ff9f" fill-opacity="0.03" opacity="0.5"/>
+    <circle cx="100" cy="100" r="20" stroke="#00ff9f" stroke-width="1" fill="none" opacity="0.5"/>
+    <line x1="100" y1="10" x2="100" y2="190" stroke="#00ff9f" stroke-width="0.3" opacity="0.2"/>
+    <line x1="15" y1="55" x2="185" y2="145" stroke="#00ff9f" stroke-width="0.3" opacity="0.2"/>
+    <line x1="185" y1="55" x2="15" y2="145" stroke="#00ff9f" stroke-width="0.3" opacity="0.2"/>
+  </svg>
+</section>
+
+<section id="about">
+  <div class="section-header">
+    <div class="section-tag">// 01 — ABOUT</div>
+    <h2 class="section-title">Who <span>I Am</span></h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>Hey! I'm <strong>Aryan Potdar</strong>, though most people online know me as <strong>Liquid</strong>. I'm an engineering student pursuing a degree in Management and Computer Applications, and a passionate Minecraft Bedrock developer with <strong>3+ years</strong> of hands-on experience since 2022.</p>
+      <p>I've worked extensively on both the <strong>Marketplace</strong> and <strong>in-game server</strong> sides of development. Several of my published packs perform well in both ratings and sales. As <strong>Lead Marketplace Developer at Ducky Creations</strong>, I gained deep experience with Marketplace standards, submission requirements, and quality guidelines.</p>
+      <p>I've also been part of the <strong>LifeBoat Network</strong> team, contributing across Translation, Beta Testing, QA, and Moderation. Beyond Bedrock, I enjoy <strong>chess</strong>, video editing, and constantly learning new skills. I follow a night schedule and can comfortably handle American and European time zones.</p>
+    </div>
+    <div class="about-stats">
+      <div class="stat-card"><div class="stat-num">3+</div><div class="stat-label">Years in Industry</div></div>
+      <div class="stat-card"><div class="stat-num">BP/RP</div><div class="stat-label">Marketplace Packs</div></div>
+      <div class="stat-card"><div class="stat-num">BDS</div><div class="stat-label">Server Infrastructure</div></div>
+      <div class="stat-card"><div class="stat-num">&#127769;</div><div class="stat-label">Night Owl Coder</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="section-header">
+    <div class="section-tag">// 02 — SKILLS</div>
+    <h2 class="section-title">Tech <span>Stack</span></h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-category">
+      <div class="skill-cat-title">Bedrock Development</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Behavior Packs</span><span class="skill-tag">Resource Packs</span>
+        <span class="skill-tag">Custom Entities</span><span class="skill-tag">Scripting API</span>
+        <span class="skill-tag">Animation Controllers</span><span class="skill-tag">Marketplace Content</span>
+        <span class="skill-tag">Particle Effects</span><span class="skill-tag">BDS Setup</span>
+      </div>
+    </div>
+    <div class="skill-category">
+      <div class="skill-cat-title">Server Infrastructure</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Vultr / DigitalOcean</span><span class="skill-tag">Google Cloud / AWS</span>
+        <span class="skill-tag">Ubuntu / Debian</span><span class="skill-tag">Docker</span>
+        <span class="skill-tag">GitHub CI/CD</span><span class="skill-tag">Automated Backups</span>
+        <span class="skill-tag">Crash Recovery</span><span class="skill-tag">Railway</span>
+      </div>
+    </div>
+    <div class="skill-category">
+      <div class="skill-cat-title">Backend &amp; Databases</div>
+      <div class="skill-tags">
+        <span class="skill-tag">JavaScript / Node.js</span><span class="skill-tag">MySQL</span>
+        <span class="skill-tag">PostgreSQL</span><span class="skill-tag">MongoDB</span>
+        <span class="skill-tag">REST APIs</span><span class="skill-tag">Discord Bots</span>
+        <span class="skill-tag">Slack Integration</span>
+      </div>
+    </div>
+    <div class="skill-category">
+      <div class="skill-cat-title">Web &amp; Tools</div>
+      <div class="skill-tags">
+        <span class="skill-tag">HTML / CSS</span><span class="skill-tag">Admin Dashboards</span>
+        <span class="skill-tag">Git / GitHub</span><span class="skill-tag">Crowdin</span>
+        <span class="skill-tag">VS Code</span><span class="skill-tag">Video Editing</span>
+        <span class="skill-tag">QA Testing</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="section-header">
+    <div class="section-tag">// 03 — EXPERIENCE</div>
+    <h2 class="section-title">Work <span>History</span></h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="exp-list">
+    <div class="exp-card">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">Lead Marketplace Developer</div>
+          <div class="exp-company">Ducky Creations</div>
+        </div>
+        <div class="exp-meta">
+          <span class="exp-badge">Marketplace</span>
+          <span class="exp-badge">Lead</span>
+        </div>
+      </div>
+      <div class="exp-body">
+        Led all Marketplace development — building and publishing behavior packs and resource packs that met official Marketplace standards. Handled everything from design to submission, QA, and post-launch maintenance. Built a lightweight <strong>BDS backed by DigitalOcean</strong> with player blacklisting/whitelisting systems.
+      </div>
+      <div class="exp-links">
+        <span class="exp-badge" style="color:var(--muted);">IP: mc.duckycreations.com</span>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">Server Infrastructure Developer</div>
+          <div class="exp-company">5 Frame Studios</div>
+        </div>
+        <div class="exp-meta">
+          <span class="exp-badge">Full Infrastructure</span>
+          <span class="exp-badge">Contract</span>
+        </div>
+      </div>
+      <div class="exp-body">
+        Built the <strong>complete server infrastructure from scratch</strong>. Hosted on <strong>Vultr (Ubuntu 22.04 LTS)</strong> with a separate PostgreSQL instance. Co-developed the <strong>Discord bot "Remis"</strong> (JavaScript/Node.js) supporting restart, shutdown, blacklist, and whitelist commands with role-based Discord verification. Systems included: live playtime Discord leaderboard, automated uptime/downtime detection with Slack &amp; Discord alerts, rank-based permissions, custom anti-cheat, full event logging (player counts, messages, ranks, inventories, join/leave times), and an admin dashboard with API integrations. The backend logic continues to power their setup after their migration to Minecraft Realms.
+      </div>
+      <div class="exp-links">
+        <a href="https://www.5framestudios.com/" class="exp-link" target="_blank">5framestudios.com</a>
+        <a href="https://discord.gg/yXxt8wnrUm" class="exp-link" target="_blank">Discord</a>
+        <a href="https://realms.gg/8hy2zQPi8XQ" class="exp-link" target="_blank">Realm</a>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">Community Manager · QA · Lead Translator · Moderator</div>
+          <div class="exp-company">LifeBoat Network</div>
+        </div>
+        <div class="exp-meta">
+          <span class="exp-badge">Featured Server</span>
+          <span class="exp-badge">Multi-Role</span>
+        </div>
+      </div>
+      <div class="exp-body">
+        Held multiple roles. As <strong>QA/Beta Tester</strong> — analyzed and patched player-reported bugs, glitches, and exploits; developed an <strong>automated backup and recovery system</strong> with manual controls via Slack, Discord, and in-game commands. As <strong>Lead Translator</strong> — independently managed the Translation Team, Translation Program, and Crowdin platform. Also served as <strong>In-Game Moderator</strong> and <strong>Trainee Mentor</strong>.
+      </div>
+      <div class="exp-links">
+        <a href="https://www.lbsg.net/" class="exp-link" target="_blank">lbsg.net</a>
+        <a href="https://discord.gg/lifeboat" class="exp-link" target="_blank">Discord</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="section-header">
+    <div class="section-tag">// 04 — PROJECTS</div>
+    <h2 class="section-title">My <span>Projects</span></h2>
+    <div class="section-line"></div>
+  </div>
+  <div id="projects-grid">
+    <div class="projects-empty">
+      <div style="margin-bottom:1rem;">[ NO PROJECTS LOADED ]</div>
+      <div>Add entries to <code>projects.json</code> to populate this grid automatically.</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-header">
+    <div class="section-tag">// 05 — CONTACT</div>
+    <h2 class="section-title">Get In <span>Touch</span></h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-text">
+      <p>Got a project in mind? Want to collaborate on Marketplace content, a custom add-on, or server infrastructure? I'm open to it — drop me a message on any platform below.</p>
+    </div>
+    <div class="contact-links">
+      <a href="https://github.aryanpotdar.com" class="contact-link" target="_blank">
+        <div class="contact-link-icon">[GH]</div>
+        <div><div class="contact-link-label">GitHub</div><div class="contact-link-value">github.aryanpotdar.com</div></div>
+      </a>
+      <a href="https://discord.com/users/therealiquid" class="contact-link" target="_blank">
+        <div class="contact-link-icon">[DC]</div>
+        <div><div class="contact-link-label">Discord</div><div class="contact-link-value">therealiquid</div></div>
+      </a>
+      <a href="mailto:contact@aryanpotdar.com" class="contact-link">
+        <div class="contact-link-icon">[ML]</div>
+        <div><div class="contact-link-label">Email</div><div class="contact-link-value">contact@aryanpotdar.com</div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="interests">
+  <div class="section-header">
+    <div class="section-tag">// 06 — INTERESTS</div>
+    <h2 class="section-title">Beyond <span>The Code</span></h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="interests-grid">
+    <div class="interest-pill">Minecraft Add-on Development</div>
+    <div class="interest-pill">Gaming &amp; Esports</div>
+    <div class="interest-pill">Technology &amp; Innovation</div>
+    <div class="interest-pill">Paranormal Studies &amp; Exploration</div>
+    <div class="interest-pill">Vanlife &amp; Camping Adventures</div>
+    <div class="interest-pill">K-Pop</div>
+    <div class="interest-pill">Nightlife</div>
+    <div class="interest-pill">Video Editing</div>
+  </div>
+</section>
+
+<section id="quotes">
+  <div class="section-header">
+    <div class="section-tag">// 07 — QUOTES</div>
+    <h2 class="section-title">Words That <span>Hit Different</span></h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="quote-display">
+    <div class="quote-mark">"</div>
+    <div class="quote-text" id="quote-text">Initializing quote feed...</div>
+    <div class="quote-author" id="quote-author">loading</div>
+    <div class="quote-controls">
+      <button class="quote-btn" id="quote-next">[ NEXT ]</button>
+      <span class="quote-status" id="quote-status"></span>
+    </div>
+  </div>
+</section>
+
+<section id="privacy">
+  <div class="section-header">
+    <div class="section-tag">// 08 — PRIVACY</div>
+    <h2 class="section-title">Privacy <span>Policy</span></h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="privacy-box">
+    <h3>[ LAST UPDATED: 2026 ]</h3>
+    <p>
+      This website does not collect, store, or process any personal data. No cookies are set, no analytics are run, and no tracking scripts are loaded.
+      <br/><br/>
+      Questions? Reach out via the contact section above.
+    </p>
+  </div>
+</section>
+
+<div style="height:28px;"></div>
+
+<div class="status-bar">
+  <div class="status-item"><div class="status-dot"></div> ONLINE</div>
+  <div class="status-item">// ARYAN POTDAR</div>
+  <div class="status-item" id="time-display2"></div>
+  <div class="status-item" style="margin-left:auto;">v1.0.0 // ARYAN.DEV</div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
